@@ -3,10 +3,10 @@ const router = express.Router()
 const carController = require('../controllers/carController')
 
 
-router.get('/car', carController.getAllCars)
-router.get('/car/:id', carController.getCarById)
-router.post('/car', carController.addCar)
-router.put('/car/:id', carController.updateCar)
-router.delete('/car/:id', carController.deleteCar)
+router.get('/', carController.getAllCars)
+router.get('/:id', carController.getCarById)
+router.post('/', carController.addCar)
+router.put('/:id', carController.updateCar)
+router.delete('/:id', carController.deleteCar)
 
 module.exports = router

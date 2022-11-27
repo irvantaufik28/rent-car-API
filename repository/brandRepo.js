@@ -3,28 +3,32 @@ const prisma = new PrismaClient()
 
 class BrandRepo {
     constructor(){
-        this.BrandModel = prisma 
+        this.BrandModel = prisma.brand
     }
 
     async getBrands() {
-        const brands = await this.BrandModel.brand.findMany()
-        return brands
-    }
-
-    async getBrandById(){
-        const brand = await this.BrandModel.brand.findUnique({
-            where: { id }
+        const brands = await this.BrandModel.findMany({
+            include: {
+                car: true
+            }
         })
         return brands
     }
 
-    async addBrand({data:data}) {
-        const brand = await this.BrandModel.brand.create(data)
+    async getBrandById(id){
+        const brand = await this.BrandModel.findUnique({
+            where: { id }
+        })
+        return brand
+    }
+
+    async addBrand(data) {
+        const brand = await this.BrandModel.create({data:data})
         return brand
     }
 
     async updateBrand(data , id) {
-        const brand = await this.BrandModel.brand.update({
+        const brand = await this.BrandModel.update({
             data,
             where: { id }
         })
@@ -32,7 +36,9 @@ class BrandRepo {
     }
 
     async deleteBrand(id) {
-        const brand = await this.BrandModel.brand.delete(id)
+        const brand = await this.BrandModel.delete({
+            where: { id }
+        })
         return brand
     }
 }

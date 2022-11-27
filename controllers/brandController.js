@@ -5,9 +5,9 @@ module.exports = {
         try {
             const car = await req.brandUC.getAllBrands()
             if (!car.isSuccess) {
-                return res.status(car.statusCode).json(resData.failed)
+                return res.status(car.statusCode).json(resData.failed(car.reason))
             }
-            return res.status(car.statusCode).json(resData.success)
+            return res.status(car.statusCode).json(resData.success(car.data))
 
         } catch (error) {
             next(error)
@@ -18,9 +18,9 @@ module.exports = {
             const { id } = req.params
             const car = await req.brandUC.getBrandById(parseInt(id))
             if (!car.isSuccess) {
-                return res.status(car.statusCode).json(resData.failed)
+                return res.status(car.statusCode).json(resData.failed(car.reason))
             }
-            return res.status(car.statusCode).json(resData.success)
+            return res.status(car.statusCode).json(resData.success(car.data))
 
         } catch (error) {
             next(error)
@@ -34,9 +34,9 @@ module.exports = {
             }
             const car = await req.brandUC.addBrand(data)
             if (!car.isSuccess) {
-                return res.status(car.statusCode).json(resData.failed)
+                return res.status(car.statusCode).json(resData.failed(car.reason))
             }
-            return res.status(car.statusCode).json(resData.success)
+            return res.status(car.statusCode).json(resData.success(car.data))
 
         } catch (error) {
             next(error)
@@ -50,9 +50,9 @@ module.exports = {
             }
             const car = await req.brandUC.updateBrand(data, parseInt(id))
             if (!car.isSuccess) {
-                return res.status(car.statusCode).json(resData.failed)
+                return res.status(car.statusCode).json(resData.failed(car.reason))
             }
-            return res.status(car.statusCode).json(resData.success)
+            return res.status(car.statusCode).json(resData.success())
 
         } catch (error) {
             next(error)
@@ -63,9 +63,9 @@ module.exports = {
             const { id } = req.params
             const car = await req.brandUC.deleteBrand(parseInt(id))
             if (!car.isSuccess) {
-                return res.status(car.statusCode).json(resData.failed)
+                return res.status(car.statusCode).json(resData.failed(car.reason))
             }
-            return res.status(car.statusCode).json(res.success)
+            return res.status(car.statusCode).json(resData.success())
 
         } catch (error) {
             next(error)

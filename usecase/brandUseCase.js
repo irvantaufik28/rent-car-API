@@ -3,7 +3,7 @@ class BrandUseCase {
         this.brandRepo = brandRepo
     }
 
-    async getAllBrand() {
+    async getAllBrands() {
         let result = {
             isSuccess: true,
             statusCode: 200,

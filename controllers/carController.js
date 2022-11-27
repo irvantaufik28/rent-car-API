@@ -41,7 +41,7 @@ module.exports = {
         try {
             const data = {
                 name: req.body.name,
-                brand: req.body.brand,
+                brandId: req.body.brandId,
                 type: req.body.type,
                 price: req.body.price,
                 fotoId: req.body.fotoId
