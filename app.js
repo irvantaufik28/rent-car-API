@@ -35,6 +35,7 @@ app.get('/', (req, res)=>{
 })
 
 app.use('/api/v1', rootRouter)
+app.use("uploads", express.static("public/uploads"));
 app.use(serverError)
 
 module.exports = app

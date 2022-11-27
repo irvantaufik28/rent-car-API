@@ -27,7 +27,7 @@ CREATE TABLE "foto" (
     "id" SERIAL NOT NULL,
     "small" TEXT,
     "large" TEXT,
-    "orignal" TEXT,
+    "original" TEXT,
     "mimeType" TEXT,
 
     CONSTRAINT "foto_pkey" PRIMARY KEY ("id")

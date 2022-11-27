@@ -31,10 +31,10 @@ class FotoUseCase {
         this.fs.unlinkSync(file.path)
 
         const createData = {
-            name: originalFileName,
-            mimeType:fileType,
             small: smallFileName,
-            large: largeFileName
+            large: largeFileName,
+            original: originalFileName,
+            mimeType:fileType,
         }
 
         const data = await this.fotoRepo.addFoto(createData)
@@ -42,6 +42,7 @@ class FotoUseCase {
         result.isSuccess = true;
         result.statusCode = 200;
         result.data = data;
+        return result
     }
 
 

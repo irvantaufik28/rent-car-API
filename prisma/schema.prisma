@@ -36,7 +36,7 @@ model foto {
   id Int @id @default(autoincrement())
   small String?
   large String?
-  orignal String?
+  original String?
   mimeType String?
   car Car[]
 }
