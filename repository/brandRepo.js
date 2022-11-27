@@ -1,7 +1,7 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
-class Brand {
+class BrandRepo {
     constructor(){
         this.BrandModel = prisma 
     }
@@ -36,3 +36,5 @@ class Brand {
         return brand
     }
 }
+
+module.exports = BrandRepo;
