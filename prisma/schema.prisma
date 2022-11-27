@@ -17,8 +17,8 @@ model Car {
   brandId Int?
   type String?
   price Int
-  foto foto? @relation(fields: [fotoId], references: [id])
-  fotoId Int?
+  photo photo? @relation(fields: [photoId], references: [id])
+  photoId Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
@@ -32,7 +32,7 @@ model Brand {
 }
 
 
-model foto {
+model photo {
   id Int @id @default(autoincrement())
   small String?
   large String?

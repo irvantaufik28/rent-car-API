@@ -44,7 +44,7 @@ module.exports = {
                 brandId: req.body.brandId,
                 type: req.body.type,
                 price: req.body.price,
-                fotoId: req.body.fotoId
+                photoId: req.body.photoId
             }        
             const car = await req.carUC.addCar(data)
             if (!car.isSuccess) {
@@ -70,7 +70,7 @@ module.exports = {
                 brand: req.body.brand,
                 type: req.body.type,
                 price: req.body.price,
-                fotoId: req.body.fotoId
+                photoId: req.body.photoId
             }        
             const car = await req.carUC.updateCar( data, parseInt(id))
             if (!car.isSuccess) {

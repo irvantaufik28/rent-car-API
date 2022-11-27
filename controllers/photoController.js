@@ -3,7 +3,7 @@ const resData = require('../helper/response')
 module.exports = {
     upload: async (req, res, next) => {
         try {
-            const result = await req.fotoUC.upload(req.file);
+            const result = await req.photoUC.upload(req.file);
 
             if (!result.isSuccess) {
                 return res.status(result.statusCode).json(resData.failed(result.reason));

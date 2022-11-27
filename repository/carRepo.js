@@ -16,7 +16,8 @@ class CarRepo {
         const car = await this.CarModel.findUnique({
             where: { id }, 
             include: {
-                brand:true
+                brand:true,
+                photo: true
             }
         })
         return car

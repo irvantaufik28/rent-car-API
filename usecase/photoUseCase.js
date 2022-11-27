@@ -1,6 +1,6 @@
-class FotoUseCase {
-    constructor(fotoRepo, sharp, path, fs) {
-        this.fotoRepo = fotoRepo;
+class PhotoUseCase {
+    constructor(photoRepo, sharp, path, fs) {
+        this.photoRepo = photoRepo;
         this.sharp = sharp;
         this.path = path;
         this.fs = fs;
@@ -37,7 +37,7 @@ class FotoUseCase {
             mimeType:fileType,
         }
 
-        const data = await this.fotoRepo.addFoto(createData)
+        const data = await this.photoRepo.addFoto(createData)
 
         result.isSuccess = true;
         result.statusCode = 200;
@@ -48,4 +48,4 @@ class FotoUseCase {
 
 }
 
-module.exports = FotoUseCase;
+module.exports = PhotoUseCase;

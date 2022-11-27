@@ -10,20 +10,20 @@ const rootRouter = require('./routes/index')
 
 const CarUseCase = require('./usecase/carUseCase')
 const BrandUseCase = require('./usecase/brandUseCase')
-const FotoUseCase = require('./usecase/fotoUseCase')
+const PhotoUseCase = require('./usecase/photoUseCase')
 
 const CarRepo = require('./repository/carRepo')
 const BrandRepo = require('./repository/brandRepo')
-const FotoRepo = require('./repository/fotorRepo')
+const PhotoRepo = require('./repository/photoRepo')
 
 const carUC = new CarUseCase(new CarRepo())
 const brandUC = new BrandUseCase(new BrandRepo())
-const fotoUC = new FotoUseCase(new FotoRepo(), sharp, path, fs)
+const photoUC = new PhotoUseCase(new PhotoRepo(), sharp, path, fs)
 
 app.use((req, res, next)=>{
     req.carUC = carUC
     req.brandUC = brandUC
-    req.fotoUC = fotoUC
+    req.photoUC = photoUC
     next()
 })
 

@@ -5,7 +5,7 @@ CREATE TABLE "Car" (
     "brandId" INTEGER,
     "type" TEXT,
     "price" INTEGER NOT NULL,
-    "fotoId" INTEGER,
+    "photoId" INTEGER,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -23,18 +23,18 @@ CREATE TABLE "Brand" (
 );
 
 -- CreateTable
-CREATE TABLE "foto" (
+CREATE TABLE "photo" (
     "id" SERIAL NOT NULL,
     "small" TEXT,
     "large" TEXT,
     "original" TEXT,
     "mimeType" TEXT,
 
-    CONSTRAINT "foto_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "photo_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
 ALTER TABLE "Car" ADD CONSTRAINT "Car_brandId_fkey" FOREIGN KEY ("brandId") REFERENCES "Brand"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Car" ADD CONSTRAINT "Car_fotoId_fkey" FOREIGN KEY ("fotoId") REFERENCES "foto"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Car" ADD CONSTRAINT "Car_photoId_fkey" FOREIGN KEY ("photoId") REFERENCES "photo"("id") ON DELETE SET NULL ON UPDATE CASCADE;
