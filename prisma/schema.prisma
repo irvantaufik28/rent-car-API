@@ -13,9 +13,19 @@ datasource db {
 model Car {
   id Int @id @default(autoincrement())
   name String
-  brand String
-  type String
+  brand Brand? @relation(fields: [brandId], references: [id])
+  brandId Int?
+  type String?
   price Int
   fotoId Int
   createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Brand {
+  id Int @id @default(autoincrement())
+  name String?
+  car Car[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }

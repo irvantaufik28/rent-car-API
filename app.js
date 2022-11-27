@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
+const serverError = require('./middlerware/serverError')
 
-const carRouter = require('./routes/carRoutes')
+const rootRouter = require('./routes/index')
 const CarUseCase = require('./usecase/carUseCase')
 const CarRepo = require('./repository/carRepo')
 
@@ -13,10 +14,13 @@ app.use((req, res, next)=>{
 })
 
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 app.get('/', (req, res)=>{
     res.json('halo prisma')
 })
-app.use('/api/v1', carRouter)
-app.listen(3000, ()=>{
-    console.log('server runing port 3000')
-})
+
+app.use('/api/v1', rootRouter)
+app.use(serverError)
+
+module.exports = app
